@@ -7,6 +7,12 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Run seeders",
+            "program": "${workspaceFolder}/seeders/index.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/index.js"
         }

@@ -7,7 +7,7 @@ let session
 
 async function purchaseBookHandler(req, res, next) {
     try {
-        const { email, bookId, quantity } = req.body
+        const { bookId, quantity } = req.body
 
         session = await mongoose.startSession()
         session.startTransaction()
@@ -19,9 +19,9 @@ async function purchaseBookHandler(req, res, next) {
         await bookFound.alterBookQuantity(quantity, 'subtract')
 
         await Purchase.create({
-            email, bookId, quantity
+            userId: req.user._id,
+            bookId, quantity
         })
-        throw new Error('testing')
         await session.commitTransaction();
         session.endSession();
 
