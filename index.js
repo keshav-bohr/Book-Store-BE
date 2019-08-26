@@ -11,7 +11,10 @@ app.use(cors({
     credentials: true,
 }))
 
-mongoose.connect("mongodb://localhost:27017/book-store");
+mongoose.connect("mongodb://127.0.0.1:27017/book-store", {
+    useNewUrlParser: true
+});
+mongoose.set('debug', true)
 
 app.use(bodyParser.json())
 
