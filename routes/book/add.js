@@ -1,9 +1,9 @@
-const book = require('../../models/book')
+const Book = require('../../models/book')
 
 async function createBookHandler(req, res, next) {
     try {
         const { title, quantity, description, author, price } = req.body
-        const newBook = new book({
+        const newBook = new Book({
             title, quantity, description, author, price
         })
         await newBook.save()

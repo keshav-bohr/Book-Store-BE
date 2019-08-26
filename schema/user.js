@@ -20,6 +20,10 @@ const userSchema = new Schema({
     isAdmin: {
         type: Boolean,
         default: false
+    },
+    passwordResetDate: {
+        type: Date,
+        default: Date.now()
     }
 })
 

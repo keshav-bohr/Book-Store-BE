@@ -2,8 +2,12 @@ const mongoose = require('mongoose')
 const bookSchema = require('../schema/book')
 
 
-bookSchema.methods.addBookQuantity = async function (addQuantity) {
-    this.quantity += addQuantity
+bookSchema.methods.alterBookQuantity = async function (addQuantity, type = 'add') {
+    if (type === 'add') {
+        this.quantity += addQuantity
+    } else {
+        this.quantity -= addQuantity
+    }
     await this.save()
 }
 

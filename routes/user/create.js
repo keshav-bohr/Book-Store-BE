@@ -1,9 +1,9 @@
-const user = require('../../models/user')
+const User = require('../../models/user')
 
 async function createUserHandler(req, res, next) {
     try {
         const { email, password, name } = req.body
-        const newUser = new user({
+        const newUser = new User({
             email, password, name
         })
         await newUser.save()
